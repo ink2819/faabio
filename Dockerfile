@@ -7,14 +7,12 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory for backend
 WORKDIR /app/backend
 
-# Install git and dependencies
+# Install git and Python dependencies
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-
-# Install Python dependencies
 RUN pip install --no-cache-dir git+https://github.com/kramcat/CharacterAI.git flask
 
-# Copy backend code
-COPY backend/ ./backend
+# Copy backend code (fix path here)
+COPY backend/ ./
 
 # Step 2: Frontend (Static Files)
 FROM nginx:alpine AS frontend
