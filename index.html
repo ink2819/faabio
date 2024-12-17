@@ -4,51 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Give Me a Fabio</title>
-    <style>
-        /* General Reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: #BFBFBF; /* Windows 2000 Grey */
-            font-family: Tahoma, sans-serif;
-        }
-
-        /* Centered Content */
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            text-align: center;
-        }
-
-        /* Windows 2000 Button Style */
-        button {
-            background-color: #DFDFDF;
-            border: 2px solid #808080;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            color: #000;
-            box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
-        }
-
-        button:active {
-            box-shadow: inset -2px -2px #fff, inset 2px 2px #808080;
-        }
-
-        /* Image Display */
-        #fabio-container {
-            margin-top: 20px;
-        }
-
-        img {
-            max-width: 80%;
-            border: 3px solid #808080;
-            background-color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -58,39 +14,14 @@
         </div>
     </div>
 
-    <script>
-        // Load links from images2.csv
-        async function loadLinks() {
-            const response = await fetch('images2.csv');
-            const text = await response.text();
-            const lines = text.split('\n').filter(line => line.trim() !== '');
-            return lines;
-        }
+    <!-- SMS Style Dialogue Box -->
+    <div class="sms-container">
+        <h3>Old SMS Style Chat</h3>
+        <textarea id="sms-input" maxlength="300" placeholder="Type your message here (max 300 characters)..."></textarea>
+        <button id="send-button">Send</button>
+        <div id="response-container"></div>
+    </div>
 
-        let imgurLinks = [];
-
-        // Initialize links and event listener
-        loadLinks().then(links => {
-            imgurLinks = links;
-            document.getElementById('fabio-button').addEventListener('click', () => {
-                if (imgurLinks.length > 0) {
-                    // Select a random link
-                    const randomLink = imgurLinks[Math.floor(Math.random() * imgurLinks.length)];
-                    
-                    // Construct Imgur link and image
-                    const imgurPageLink = `https://imgur.com/${randomLink}`;
-                    const imgurImageLink = `https://i.imgur.com/${randomLink}.png`;
-                    
-                    // Display the link and image
-                    const container = document.getElementById('fabio-container');
-                    container.innerHTML = `<a href="${imgurPageLink}" target="_blank">
-                        <img src="${imgurImageLink}" title="source: imgur.com" />
-                    </a>`;
-                } else {
-                    alert('No links found. Make sure images2.csv is loaded correctly.');
-                }
-            });
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>

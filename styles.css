@@ -1,0 +1,102 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #BFBFBF; /* Windows 2000 Grey */
+    font-family: Tahoma, sans-serif;
+}
+
+/* Centered Content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    text-align: center;
+}
+
+button {
+    background-color: #DFDFDF;
+    border: 2px solid #808080;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+    box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
+}
+
+button:active {
+    box-shadow: inset -2px -2px #fff, inset 2px 2px #808080;
+}
+
+#fabio-container {
+    margin-top: 20px;
+}
+
+img {
+    max-width: 80%;
+    border: 3px solid #808080;
+    background-color: #fff;
+}
+
+/* SMS Container */
+.sms-container {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+    background-color: #F0F0F0;
+    border: 2px solid #808080;
+    box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.sms-container h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+#sms-input {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    border: 2px solid #808080;
+    box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
+    resize: none;
+    background-color: #FFF;
+}
+
+#send-button {
+    display: block;
+    width: 100%;
+    background-color: #DFDFDF;
+    border: 2px solid #808080;
+    box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
+    color: #000;
+    font-size: 16px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#send-button:active {
+    box-shadow: inset -2px -2px #fff, inset 2px 2px #808080;
+}
+
+#response-container {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #FFF;
+    border: 2px solid #808080;
+    box-shadow: inset 2px 2px #fff, inset -2px -2px #808080;
+    font-size: 14px;
+    color: #333;
+    min-height: 50px;
+    white-space: pre-wrap;
+    overflow-y: auto;
+}
