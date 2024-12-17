@@ -4,7 +4,11 @@ from characterai import aiocai
 import asyncio
 
 app = Flask(__name__)
-CORS(app, origins=["http://127.0.0.1:5500"])
+CORS(app, origins=["https://faabio.onrender.com"])
+
+@app.route('/')
+def home():
+    return "Flask backend is running!"
 
 CHARACTER_ID = "rWeY4d1UCMOQ_MKPsYFvQFzOx5dE4eZUxqHzcFrMT4A"
 TOKEN = "d3c55e8c19473728d0055567ac29b5605e664f56"
@@ -31,4 +35,4 @@ def send_message():
     return jsonify({"message": ai_response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)

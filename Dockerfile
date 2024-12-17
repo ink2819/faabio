@@ -42,7 +42,7 @@ COPY --from=backend /app/backend /app/backend
 COPY --from=frontend /usr/share/nginx/html /app/frontend
 
 # Expose Flask API port
-EXPOSE 5000
+EXPOSE 8080
 
 # Start the Flask API using virtual environment
 CMD ["python", "backend/server.py"]

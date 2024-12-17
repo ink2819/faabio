@@ -36,7 +36,7 @@ loadLinks().then(links => {
 // Handle SMS-style chat input and send to backend
 async function sendMessage(userInput) {
     try {
-        const response = await fetch('http://127.0.0.1:5000/send-message', {
+        const response = await fetch('https://faabio.onrender.com/send-message', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
