@@ -4,7 +4,7 @@ from characterai import aiocai
 import asyncio
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=["http://127.0.0.1:5500"])
 
 CHARACTER_ID = "rWeY4d1UCMOQ_MKPsYFvQFzOx5dE4eZUxqHzcFrMT4A"
 TOKEN = "d3c55e8c19473728d0055567ac29b5605e664f56"
