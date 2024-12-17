@@ -7,11 +7,13 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory for backend
 WORKDIR /app/backend
 
-# Install git and Python dependencies
+# Install system dependencies (git for CharacterAI) and clean up afterward
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-RUN pip install --no-cache-dir git+https://github.com/kramcat/CharacterAI.git
 
-# Copy backend code (fix path here)
+# Install Python dependencies (Flask and CharacterAI)
+RUN pip install --no-cache-dir flask git+https://github.com/kramcat/CharacterAI.git
+
+# Copy backend code
 COPY backend/ ./
 
 # Step 2: Frontend (Static Files)
@@ -32,8 +34,8 @@ COPY --from=backend /app/backend /app/backend
 # Copy frontend static files
 COPY --from=frontend /usr/share/nginx/html /app/frontend
 
-# Expose ports for Flask and Nginx
-EXPOSE 5000 80
+# Expose Flask API port
+EXPOSE 5000
 
 # Start the Flask API
 CMD ["python", "backend/server.py"]
