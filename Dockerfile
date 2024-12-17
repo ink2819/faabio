@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # Create a virtual environment and install dependencies
 RUN python -m venv venv
 RUN venv/bin/pip install --upgrade pip
-RUN venv/bin/pip install flask git+https://github.com/kramcat/CharacterAI.git
+RUN venv/bin/pip install flask flask_cors git+https://github.com/kramcat/CharacterAI.git
 
 # Copy backend code
 COPY backend/ ./
